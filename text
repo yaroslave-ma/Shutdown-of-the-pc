@@ -1,0 +1,32 @@
+from tkinter import *
+from tkinter import messagebox 
+
+def btn_click():
+    login = loginInput.get()
+    password = passwordInput.get()
+    info_str = f'User data: {str(login)} {str(password)}'  
+    messagebox.showinfo(title='Title', message=info_str) 
+    
+
+    print("You've clicked on the button")
+
+root = Tk() 
+root.title('turn_of_pc') 
+root.geometry('800x560')
+
+canvas = Canvas(root, height=560, width=800) 
+canvas.pack()
+
+frame = Frame(root, bg='red')
+frame.place(relheight=0.6, relwidth=0.6, rely=0.15, relx=0.17) 
+
+title = Label(frame, text='Text hint', bg='gray', font=40)
+title.pack()
+button = Button(frame, text='The button', bg='purple', command=btn_click)
+button.pack() 
+loginInput = Entry(frame, bg='white')
+loginInput.pack()   
+passwordInput = Entry(frame, bg='white', show='*') 
+passwordInput.pack() 
+
+root.mainloop()
